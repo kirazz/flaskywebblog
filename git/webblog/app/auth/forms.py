@@ -12,7 +12,7 @@ class LoginForm(Form):
 class RegistrationForm(Form):
     username = StringField('用户名',validators=[Required(),Length(1,64),
                            Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,
-                                  '用户名只能有字母，数字，点和下划线')])
+                                  '用户名只能有字母，数字，点和下划线；开头必需为字母')])
     password = PasswordField('密码',validators=[Required(),EqualTo('password2','密码必须一样')])
     password2 = PasswordField('确认密码',validators=[Required()])
     submit = SubmitField('注册')
